@@ -1,0 +1,29 @@
+{
+  "name": "catchmindjs",
+  "version": "1.0.0",
+  "description": "make a game with JS, nodeJS and socket.io",
+  "main": "index.js",
+  "scripts": {
+    "dev:server": "nodemon --exec babel-node src/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ystime25/catchmindjs.git"
+  },
+  "author": "Youn Seok Lee <ystime25@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ystime25/catchmindjs/issues"
+  },
+  "homepage": "https://github.com/ystime25/catchmindjs#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12",
+    "socket.io": "^4.1.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.8"
+  }
+}
