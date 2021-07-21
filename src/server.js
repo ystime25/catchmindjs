@@ -21,5 +21,13 @@ const server = app.listen(PORT, handleConnection);
 const io = socketIO(server);
 
 io.on("connection", (socket) => {
-  socket.on("helloEveryone", () => console.log("the opponent said hello."));
+  socket.on("newMessage", ({ message }) => {
+    socket.broadcast.emit("messageNoti", {
+      message,
+      nickname: socket.nickname || "anon",
+    });
+  });
+  socket.on("setNickname", ({ nickname }) => {
+    socket.nickname = nickname;
+  });
 });
