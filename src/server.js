@@ -20,10 +20,6 @@ const server = app.listen(PORT, handleConnection);
 
 const io = socketIO(server);
 
-let sockets = [];
-
 io.on("connection", (socket) => {
-  sockets.push(socket.id);
+  socket.on("helloEveryone", () => console.log("the opponent said hello."));
 });
-
-setInterval(() => console.log(sockets), 1000);
