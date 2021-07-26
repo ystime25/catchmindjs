@@ -9,6 +9,9 @@ Realtime Drawing Game built with JS, nodeJS, SocketIO and Gulp
 - [x] Static Config
 - [x] ESLINT Config
 - [x] Gulp CSS Compile Config
-- [ ] Gulp Browserify Config
+- [x] Gulp Browserify Config
 - [x] SocketIO Config
-- [ ] SocketIO work
+- [x] Login function
+- [ ] Login Global variables
+- [ ] Notifiacations and Chat function
+- [ ] Live canvas

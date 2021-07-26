@@ -6,7 +6,12 @@ html(lang="kr")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/styles/styles.css")
         title 내가 그린 기린 그림
-    body 
-        h1 내가 그린 기린 그림을 만들겁니다.
+    body
+        header 내가 그린 기린 그림 . JS
+        div.loginBox
+            form#jsLogin
+                input(type="text" placeholder="사용자명을 입력해주세요" required)
+        div.gameContainer#jsGame
+            h1 선수입장
         script(src="/socket.io/socket.io.js")
         script(src="/js/main.js") 
