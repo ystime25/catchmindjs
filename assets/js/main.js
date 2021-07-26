@@ -1,3 +1,5 @@
+import { handleMessageNoti } from "./chat";
+
 // eslint-disable-next-line no-undef
 const socket = io("/");
 
@@ -10,9 +12,6 @@ const setNickname = (nickname) => {
   socket.emit("setNickname", { nickname });
 };
 
-const handleMessageNoti = (data) => {
-  const { message, nickname } = data;
-  console.log(`${nickname}: ${message}`);
-};
-
 socket.on("messageNoti", handleMessageNoti);
+
+console.log("hello gulp");

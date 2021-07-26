@@ -3,6 +3,9 @@ import dartSass from "sass";
 import gulpSass from "gulp-sass";
 import autoPrefixer from "gulp-autoprefixer";
 import minifyCSS from "gulp-csso";
+import del from "del";
+import browserify from "gulp-bro";
+import babelify from "babelify";
 
 const sass = gulpSass(dartSass);
 
@@ -12,6 +15,15 @@ const paths = {
     dest: "src/static/styles",
     watch: "assets/scss/**/*.scss",
   },
+  js: {
+    src: "assets/js/main.js",
+    dest: "src/static/js",
+    watch: "assets/js/**/*.js",
+  },
+};
+
+const clean = () => {
+  return del(["src/static"]);
 };
 
 const styles = () => {
@@ -27,10 +39,30 @@ const styles = () => {
     .pipe(gulp.dest(paths.styles.dest));
 };
 
-const watch = () => {
-  gulp.watch(paths.styles.watch, styles);
+const js = () => {
+  return gulp
+    .src(paths.js.src)
+    .pipe(
+      browserify({
+        transform: [
+          babelify.configure({
+            presets: ["@babel/preset-env"],
+          }),
+        ],
+      })
+    )
+    .pipe(gulp.dest(paths.js.dest));
 };
 
-const dev = gulp.series([styles, watch]);
+const watch = () => {
+  gulp.watch(paths.styles.watch, styles);
+  gulp.watch(paths.js.watch, js);
+};
+
+const dev = gulp.series([clean, styles, js, watch]);
+
+const build = gulp.series([clean, styles, js]);
+
+export { build };
 
 export default dev;
