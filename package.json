@@ -4,7 +4,8 @@
   "description": "make a game with JS, nodeJS and socket.io",
   "main": "index.js",
   "scripts": {
-    "dev:server": "nodemon --exec babel-node src/server"
+    "dev:server": "nodemon --exec babel-node src/server",
+    "dev:assets": "gulp"
   },
   "repository": {
     "type": "git",
@@ -28,8 +29,16 @@
     "@babel/node": "^7.14.7",
     "@babel/preset-env": "^7.14.8",
     "eslint": "^7.31.0",
-    "eslint-plugin-prettier": "^3.4.0",
     "eslint-config-prettier": "^8.3.0",
-    "prettier": "^2.3.2"
-  }
+    "eslint-plugin-prettier": "^3.4.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-sass": "^5.0.0",
+    "prettier": "^2.3.2",
+    "sass": "^1.36.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
 }
