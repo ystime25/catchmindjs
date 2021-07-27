@@ -1,7 +1,19 @@
-const notifications = document.getElementById("jsNotifications");
+const body = document.querySelector("body");
 
-const handleNewUser = ({ nickname }) => {
-  console.log(nickname, "just joined");
+const initNotification = (text, color) => {
+  const notification = document.createElement("div");
+  notification.innerText = text;
+  notification.style.backgroundColor = color;
+  notification.className = "notification";
+  body.appendChild(notification);
 };
 
-export { handleNewUser };
+const handleNewUser = ({ nickname }) => {
+  initNotification(`${nickname} just joined`, "rgb(76, 217, 100)");
+};
+
+const handleDisconnected = ({ nickname }) => {
+  initNotification(`${nickname} has left the game`, "rgb(255, 59, 48)");
+};
+
+export { handleNewUser, handleDisconnected };
