@@ -1,3 +1,5 @@
+import { getSocket } from "./sockets.js";
+
 const messages = document.getElementById("jsMessages");
 const sendMsg = document.getElementById("jsSendMsg");
 
@@ -15,6 +17,8 @@ const handleSendMsg = (event) => {
   event.preventDefault();
   const input = sendMsg.querySelector("input");
   const { value } = input;
+  //error with emit
+  getSocket().emit(window.events.sendMsg, { message: value });
   input.value = "";
   appendMsg(value);
 };

@@ -9,12 +9,13 @@
     border-radius: 10px;
     box-shadow: 0 3px 36px rgba(23, 55, 87, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
     li {
-      font-size: 14px;
+      font-size: 12px;
       span {
+        font-size: 14px;
         font-weight: 600;
       }
       .self {
-        color: $black;
+        color: $green;
       }
       .other {
         color: $darkBlue;
