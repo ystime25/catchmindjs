@@ -10,11 +10,13 @@ const app = express();
 
 app.set("view engine", "pug");
 app.set("views", join(__dirname, "views"));
-app.use(logger("dev"));
-app.use(express.static(join(__dirname, "static")));
+
 app.get("/", (req, res) =>
   res.render("home", { events: JSON.stringify(events) })
 );
+
+app.use(express.static(join(__dirname, "static")));
+app.use(logger("dev"));
 
 const handleConnection = () => {
   console.log(`✅ Server online at: http://localhost:${PORT}`);
